@@ -40,7 +40,7 @@
 
         let DocumentBody = document.body.style.backgroundImage;
         document.body.style.backgroundImage = "url(view8.png)";
-        document.body.style.backgroundPosition = "bottom left";
+        
     }
 
     function DisplayRecourcesPage()
