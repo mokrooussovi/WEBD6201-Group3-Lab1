@@ -10,26 +10,51 @@
         {
             location.href = "about.html";
         });
+
+        // Step 1. get an entry point(s) (insertion point / deletion point) reference 
+        let DocumentBody = document.body.style.backgroundImage;
+        document.body.style.backgroundImage = "url(view2.png)";
+
     }
 
     function DisplayProductsPage()
     {
         console.log("Products Page");
+
+        let DocumentBody = document.body.style.backgroundImage;
+        document.body.style.backgroundImage = "url(view3.png)";
     }
 
     function DisplayServicesPage()
     {
         console.log("Services Page");
+
+        let DocumentBody = document.body.style.backgroundImage;
+        document.body.style.backgroundImage = "url(view1.png)";
     }
 
     function DisplayAboutPage()
     {
         console.log("About Page");
+
+        let DocumentBody = document.body.style.backgroundImage;
+        document.body.style.backgroundImage = "url(view6.png)";
+    }
+
+    function DisplayRecourcesPage()
+    {
+        console.log("Human Resources Page");
+
+        let DocumentBody = document.body.style.backgroundImage;
+        document.body.style.backgroundImage = "url(view4.png)";
     }
 
     function DisplayContactPage()
     {
         console.log("Contact Page");
+
+        let DocumentBody = document.body.style.backgroundImage;
+        document.body.style.backgroundImage = "url(view7.png)";
     }
 
 
@@ -51,6 +76,9 @@
                 break;
             case "About Us":
                 DisplayAboutPage();
+                break;
+            case "Human Resources":
+                DisplayRecourcesPage();
                 break;
             case "Contact Us":
                 DisplayContactPage();
