@@ -13,7 +13,7 @@
 
         // Step 1. get an entry point(s) (insertion point / deletion point) reference 
         let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view2.png)";
+        document.body.style.backgroundImage = "url(view6.png)";
 
     }
 
@@ -30,7 +30,8 @@
         console.log("Services Page");
 
         let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view1.png)";
+        document.body.style.backgroundImage = "url(view2.png)";
+
     }
 
     function DisplayAboutPage()
@@ -38,7 +39,8 @@
         console.log("About Page");
 
         let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view6.png)";
+        document.body.style.backgroundImage = "url(view8.png)";
+        document.body.style.backgroundPosition = "bottom left";
     }
 
     function DisplayRecourcesPage()
@@ -46,7 +48,7 @@
         console.log("Human Resources Page");
 
         let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view4.png)";
+        document.body.style.backgroundImage = "url(view5.png)";
     }
 
     function DisplayContactPage()
