@@ -11,7 +11,8 @@
 
         // Variable for text content to be displayed on page
         let paragraph1 = ['Welcome to our site!\n', 
-                    'This webpage was created by Ivan Mokrooussov and Will Estanislao for the WEBD6201 Client-Side Scripting course\.\n',
+                    'This webpage was created by Ivan Mokrooussov and\n',
+                    'Will Estanislao for the WEBD6201 Client-Side Scripting course\.\n',
                     'This website demonstrates the use of DOM Manipulation for Lab 1\.\n',
                     'Have fun exploring\!\n'];
 
@@ -50,8 +51,8 @@
         //let DocumentBody = document.body.style.backgroundImage;
         document.body.style.backgroundImage = "url(view3.png)";
         document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "930px 1500px";
-        document.body.style.backgroundPosition = "center right";
+        document.body.style.backgroundSize = "1250px 550px";
+        document.body.style.backgroundPosition = "400px 280px";
     }
 
     function DisplayProductsPage()
