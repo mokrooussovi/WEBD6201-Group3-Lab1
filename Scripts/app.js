@@ -2,8 +2,19 @@
 // AKA -- Anonymous Self-Executing Function
 (function()
 {
+    
+
     function DisplayHomePage()
     {
+
+        // let DocumentBody = document.body;
+
+        // Variable for text content to be displayed on page
+        let paragraph1 = ['Welcome to our site!\n', 
+                    'This webpage was created by Ivan Mokrooussov and Will Estanislao for the WEBD6201 Client-Side Scripting course\.\n',
+                    'This website demonstrates the use of DOM Manipulation for Lab 1\.\n',
+                    'Have fun exploring\!\n'];
+
         console.log("Home Page");
         let AboutUsButton = document.getElementById("AboutUsButton");
         AboutUsButton.addEventListener("click", function()
@@ -11,6 +22,30 @@
             location.href = "about.html";
         });
 
+        // TO-DO: adjust to insert into div w/in main instead of outside (maybe...)
+        // Target the main element to start inserting new content in
+        let MainContent = document.getElementsByTagName("main")[0];
+        
+        // Insert <h3> Welcome Message
+
+        // Create a new paragraph element to insert text in
+        let ParaOne = document.createElement("p");
+        ParaOne.setAttribute("id", "ParaOne");
+        ParaOne.setAttribute("class", "mt-1");
+        // Build the paragraph by adding the string array together
+        for(const textLine of paragraph1)
+        {
+            ParaOne.textContent += textLine;
+        }
+
+        // Insert new elements onto document
+        MainContent.insertBefore(ParaOne, AboutUsButton);
+
+        // Console logs for testing and checking output
+        // console.log(ParaOne);
+        // console.log(ParaOne.textContent);
+
+        // Add new elements into the document
         // Step 1. get an entry point(s) (insertion point / deletion point) reference 
         //let DocumentBody = document.body.style.backgroundImage;
         document.body.style.backgroundImage = "url(view3.png)";
