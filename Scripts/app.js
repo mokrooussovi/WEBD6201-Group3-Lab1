@@ -87,7 +87,7 @@
         //let DocumentBody = document.body.style.backgroundImage;
         document.body.style.backgroundImage = "url(view10.png)";
         document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "400px 600px";
+        document.body.style.backgroundSize = "400px 500px";
         document.body.style.backgroundPosition = "100px 300px";
 
         
@@ -100,8 +100,8 @@
         //let DocumentBody = document.body.style.backgroundImage;
         document.body.style.backgroundImage = "url(view2.png)";
         document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "1670px 1600px";
-        document.body.style.backgroundPosition = "right";
+        document.body.style.backgroundSize = "1100px 800px";
+        document.body.style.backgroundPosition = "top right";
     }
 
     function DisplayContactPage()
