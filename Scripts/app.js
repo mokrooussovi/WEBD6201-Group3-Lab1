@@ -11,11 +11,10 @@
         // let DocumentBody = document.body;
 
         // Variable for text content to be displayed on page
-        let paragraph1 = ['Welcome to our site!\n', 
-                    'This webpage was created by Ivan Mokrooussov and\n',
-                    'Will Estanislao for the WEBD6201 Client-Side Scripting course\.\n',
-                    'This website demonstrates the use of DOM Manipulation for Lab 1\.\n',
-                    'Have fun exploring\!\n'];
+        let paragraph1 = [`Welcome to our site!\n This webpage was created by Ivan Mokrooussov and\n
+                    Will Estanislao for the WEBD6201 Client-Side Scripting course\.\n
+                    This website demonstrates the use of DOM Manipulation for Lab 1\.\n
+                    Have fun exploring\!\n`];
 
         console.log("Home Page");
         let AboutUsButton = document.getElementById("AboutUsButton");
@@ -26,34 +25,21 @@
 
         // TO-DO: adjust to insert into div w/in main instead of outside (maybe...)
         // Target the main element to start inserting new content in
-        let MainContent = document.getElementsByTagName("main")[0];
-        
-        // Insert <h3> Welcome Message
+        let MainContent = document.getElementsByClassName('container')[0];
+        let ImgContent = document.getElementsByClassName('InnerBodyDiv')[0];
 
         // Create a new paragraph element to insert text in
         let ParaOne = document.createElement("p");
         ParaOne.setAttribute("id", "ParaOne");
-        ParaOne.setAttribute("class", "mt-1");
+        ParaOne.setAttribute("class", "mt-3");
         // Build the paragraph by adding the string array together
-        for(const textLine of paragraph1)
-        {
-            ParaOne.textContent += textLine;
-        }
-
+        ParaOne.textContent = paragraph1;
+        ParaOne.innerHTML += ParaOne.textContent;
+        console.log(MainContent);
+        console.log(ParaOne);
+        
         // Insert new elements onto document
-        MainContent.insertBefore(ParaOne, AboutUsButton);
-
-        // Console logs for testing and checking output
-        // console.log(ParaOne);
-        // console.log(ParaOne.textContent);
-
-        // Add new elements into the document
-        // Step 1. get an entry point(s) (insertion point / deletion point) reference 
-        //let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view3.png)";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "1250px 550px";
-        document.body.style.backgroundPosition = "400px 280px";
+        MainContent.insertBefore(ParaOne, ImgContent);
     }
 
     function DisplayProjectsPage()
@@ -61,14 +47,6 @@
         console.log("Projects Page");
 
         ProjectsContent();
-
-
-
-        //let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view4.png)";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "1670px 1600px";
-        document.body.style.backgroundPosition = "top left";
  
     }
 
@@ -78,13 +56,6 @@
 
         ServiceContent();
 
-        //let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view7.png)";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "1100px 800px";
-        document.body.style.backgroundPosition = "top right";
-        
-
     }
 
     function DisplayAboutPage()
@@ -92,13 +63,6 @@
         console.log("About Page");
 
         AboutContent();
-
-        //let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view10.png)";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "400px 500px";
-        document.body.style.backgroundPosition = "100px 300px";
-
         
     }
 
@@ -107,21 +71,13 @@
         console.log("Human Resources Page");
 
         //let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view2.png)";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "1100px 800px";
-        document.body.style.backgroundPosition = "top right";
+        //document.body.style.backgroundImage = "url(view2.png)";
+
     }
 
     function DisplayContactPage()
     {
         console.log("Contact Page");
-
-        //let DocumentBody = document.body.style.backgroundImage;
-        document.body.style.backgroundImage = "url(view1.png)";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundSize = "800px 600px";
-        document.body.style.backgroundPosition = "500px 400px";
 
         let sendButton = document.getElementById("sendButton");
         let subscribeCheckbox = document.getElementById("subscribeCheckbox");
@@ -239,11 +195,12 @@
         let NavList = document.createElement("li");
         NavList.setAttribute("class", "nav-item");
 
-        console.log(NavList);
-
         let NewNavOption = '<a class="nav-link" href="resources.html"><i class="far fa-id-card"></i> Human Resources</a>';
         NavList.innerHTML = NewNavOption;
         NavContents.after(NavList);
+        
+        // For testing - Check if html element is inserted
+        // console.log(NavList);
         
     }
 
@@ -253,8 +210,9 @@
         let SubHeading = 'Details On Favourite Projects';
         let paragraph1 = ['NASA Support application for latest lunar navigation system.', 'Traffic Co-ordinator', 
                             'Development medical software'];
-        let paragraph2 = ['Draw A Square', 'Numbers Guessing Game', 'Quiz Game'];
-        let list = '';
+        let paragraph2 = ['Draw A Square - An application that lets you draw squares', 
+                        'Numbers Guessing Game - A simple guessing game coded in C#', 
+                        'Quiz Game - A quiz game programmed in Turing. It had approximately 10 random trivia questions and music\!\nUnfortunately this game has been lost to time.'];
 
         // Select an element to find a position in the document
         let ContentBody = document.body.getElementsByTagName('main')[0];
@@ -264,31 +222,30 @@
         let ProjectSet1 = document.createElement("ul");
         ProjectSet1.setAttribute("id", "ListOne");
         ProjectSet1.setAttribute("class", "list-1");
+
         // Create ul that will contain second set of projects
         let ProjectSet2 = document.createElement("ul");
         ProjectSet2.setAttribute("id", "ListTwo");
         ProjectSet2.setAttribute("class", "list-1");
-
-        // Consider nested for...
-
-        for (const project of paragraph1)
-        {
-            list += `<li>${project}</li>`;
-        }
+        
+        // Loop to set Text
+        list = SetTextLoop(paragraph1);
+        list2 = SetTextLoop(paragraph2);
 
         ProjectSet1.innerHTML = list;
+        ProjectSet2.innerHTML = list2;
         div1.insertAdjacentElement("beforebegin", ProjectSet1);
-        list = "";
+        div1.appendChild(ProjectSet2);
 
         console.log(ProjectSet1);
     }
 
     function ServiceContent()
     {
-        let ContentBody = document.body.getElementsByTagName('main')[0];
-        let paragraph1 = ['Expertise in Web Design Techniques', 'Proficiency In Programming Languages', 'Problem-solving capabilities'];
-        let list = '';
-        let div1 = ContentBody.getElementsByClassName("container")[0];
+        let ContentBody = document.body.getElementsByClassName('container')[0];
+        let paragraph1 = ['Expertise in Web Design Techniques', 'Proficiency In Programming Languages', 
+                        'Graphic Design and Photography'];
+
         // Create the element
         let ProjectSet1 = document.createElement("ul");
         ProjectSet1.setAttribute("id", "ListThree");
@@ -298,48 +255,56 @@
         ProjectSet2.setAttribute("id", "ListThree");
         ProjectSet2.setAttribute("class", "list-1");
 
-        for (const project of paragraph1)
-        {
-            list += `<li>${project}</li>`;
-        }
+        list = SetTextLoop(paragraph1);
 
         ProjectSet1.innerHTML = list;
-        div1.appendChild(ProjectSet1);
-        list = "";
+        ContentBody.appendChild(ProjectSet1);
 
     }
 
     function AboutContent()
     {
-        let ContentBody = document.body.getElementsByTagName('main')[0];
+        let ContentBody = document.body.getElementsByClassName('container')[0];
+        let ContentBody2 = document.body.getElementsByClassName('container')[1];
         let student1 = ['Ivan Mokrooussov', 'StudentID: 100808605'];
+        let student2 = ['Will Estanislao', 'StudentID: 100786862']
         let paragraph1 = '[Enter some info here]';
-        let list = '';
-        let div1 = ContentBody.getElementsByClassName("container")[0];
+        let paragraph2 = `Hello, I\'m William Estanislao! I\'m currently in the 2 year Computer Programming
+                        course in Durham College. I specialize primarily in developing applications and working
+                        with programming languages such as C# and C++. I'm currently working on creating some games
+                        using Unity and Visual Studio.`;
         // Create the element
         let ProjectSet1 = document.createElement("ul");
-        ProjectSet1.setAttribute("id", "ListThree");
+        ProjectSet1.setAttribute("id", "student-1");
         ProjectSet1.setAttribute("class", "list-1");
         // Create ul that will contain second set of projects
         let ProjectSet2 = document.createElement("ul");
-        ProjectSet2.setAttribute("id", "ListThree");
+        ProjectSet2.setAttribute("id", "student-2");
         ProjectSet2.setAttribute("class", "list-1");
 
         // insert a href
-
-        for (const person of student1)
-        {
-            list += `<li><h3>${person}</h3></li>`;
-        }
+        list = SetTextLoop(student1);
+        list2 = SetTextLoop(student2);
 
         ProjectSet1.innerHTML = list;
-        div1.insertAdjacentElement("beforebegin",ProjectSet1);
-        div1.appendChild(paragraph1);
+        ProjectSet2.innerHTML = list2;
+        ContentBody.appendChild(ProjectSet1);
+        ContentBody2.appendChild(ProjectSet2);
         list = "";
     }
 
 
+    function SetTextLoop(textArray)
+    {
+        let list = '';
 
+        for (const textLine of textArray)
+        {
+            list += `<li>${textLine}</li>`;
+        }
+
+        return list;
+    }
 
     window.addEventListener("load", Start);
 
