@@ -1,12 +1,13 @@
 // IIFE -- Immediately Invoked Function Expression
 // AKA -- Anonymous Self-Executing Function
+
+
 (function()
 {
     
-
+    // import { ReplaceLink } from './functions.js';
     function DisplayHomePage()
     {
-
         // let DocumentBody = document.body;
 
         // Variable for text content to be displayed on page
@@ -55,9 +56,13 @@
         document.body.style.backgroundPosition = "400px 280px";
     }
 
-    function DisplayProductsPage()
+    function DisplayProjectsPage()
     {
-        console.log("Products Page");
+        console.log("Projects Page");
+
+        ProjectsContent();
+
+
 
         //let DocumentBody = document.body.style.backgroundImage;
         document.body.style.backgroundImage = "url(view4.png)";
@@ -71,6 +76,8 @@
     {
         console.log("Services Page");
 
+        ServiceContent();
+
         //let DocumentBody = document.body.style.backgroundImage;
         document.body.style.backgroundImage = "url(view7.png)";
         document.body.style.backgroundRepeat = "no-repeat";
@@ -83,6 +90,8 @@
     function DisplayAboutPage()
     {
         console.log("About Page");
+
+        AboutContent();
 
         //let DocumentBody = document.body.style.backgroundImage;
         document.body.style.backgroundImage = "url(view10.png)";
@@ -136,6 +145,7 @@
 
     function DisplayContactListPage()
     {
+
         if(localStorage.length > 0)
         {
             let contactList = document.getElementById("contactList");
@@ -176,13 +186,19 @@
     {
         console.log("App Started!");
 
+        // Replace an option in the navbar
+        ReplaceLink();
+
+        // Add in new human resources link
+        AddNavLink();
+
         switch(document.title)
         {
             case "Home":
                 DisplayHomePage();
                 break;
-            case "Our Products":
-                DisplayProductsPage();
+            case "Our Favourite Projects":
+                DisplayProjectsPage();
                 break;
             case "Our Services":
                 DisplayServicesPage();
@@ -202,6 +218,128 @@
         }
        
     }
+
+    // Function to replace text in nav bar
+    function ReplaceLink()
+    {
+        // Select the specific navigation element to be changed - products link
+        let NavContents = document.body.getElementsByClassName("nav-item")[1];
+
+        // Create the new navigation list link and insert it
+        // Completely replaces what was hardcoded in html
+        let EditNavOption = '<a class="nav-link" href="products.html"><i class="fas fa-project-diagram"></i> Projects</a>';
+        NavContents.innerHTML = EditNavOption;
+
+    }
+
+    function AddNavLink()
+    {
+        // Select the specific navigation element to be changed - products link
+        let NavContents = document.body.getElementsByClassName("nav-item")[3];
+        let NavList = document.createElement("li");
+        NavList.setAttribute("class", "nav-item");
+
+        console.log(NavList);
+
+        let NewNavOption = '<a class="nav-link" href="resources.html"><i class="far fa-id-card"></i> Human Resources</a>';
+        NavList.innerHTML = NewNavOption;
+        NavContents.after(NavList);
+        
+    }
+
+    function ProjectsContent()
+    {
+        let HeadingText = 'Project\'s Page';
+        let SubHeading = 'Details On Favourite Projects';
+        let paragraph1 = ['NASA Support application for latest lunar navigation system.', 'Traffic Co-ordinator', 
+                            'Development medical software'];
+        let paragraph2 = ['Draw A Square', 'Numbers Guessing Game', 'Quiz Game'];
+        let list = '';
+
+        // Select an element to find a position in the document
+        let ContentBody = document.body.getElementsByTagName('main')[0];
+        let div1 = ContentBody.getElementsByClassName('list')[0];
+        
+        // Create the ul that will contain the first set of projects listed
+        let ProjectSet1 = document.createElement("ul");
+        ProjectSet1.setAttribute("id", "ListOne");
+        ProjectSet1.setAttribute("class", "list-1");
+        // Create ul that will contain second set of projects
+        let ProjectSet2 = document.createElement("ul");
+        ProjectSet2.setAttribute("id", "ListTwo");
+        ProjectSet2.setAttribute("class", "list-1");
+
+        // Consider nested for...
+
+        for (const project of paragraph1)
+        {
+            list += `<li>${project}</li>`;
+        }
+
+        ProjectSet1.innerHTML = list;
+        div1.insertAdjacentElement("beforebegin", ProjectSet1);
+        list = "";
+
+        console.log(ProjectSet1);
+    }
+
+    function ServiceContent()
+    {
+        let ContentBody = document.body.getElementsByTagName('main')[0];
+        let paragraph1 = ['Expertise in Web Design Techniques', 'Proficiency In Programming Languages', 'Problem-solving capabilities'];
+        let list = '';
+        let div1 = ContentBody.getElementsByClassName("container")[0];
+        // Create the element
+        let ProjectSet1 = document.createElement("ul");
+        ProjectSet1.setAttribute("id", "ListThree");
+        ProjectSet1.setAttribute("class", "list-1");
+        // Create ul that will contain second set of projects
+        let ProjectSet2 = document.createElement("ul");
+        ProjectSet2.setAttribute("id", "ListThree");
+        ProjectSet2.setAttribute("class", "list-1");
+
+        for (const project of paragraph1)
+        {
+            list += `<li>${project}</li>`;
+        }
+
+        ProjectSet1.innerHTML = list;
+        div1.appendChild(ProjectSet1);
+        list = "";
+
+    }
+
+    function AboutContent()
+    {
+        let ContentBody = document.body.getElementsByTagName('main')[0];
+        let student1 = ['Ivan Mokrooussov', 'StudentID: 100808605'];
+        let paragraph1 = '[Enter some info here]';
+        let list = '';
+        let div1 = ContentBody.getElementsByClassName("container")[0];
+        // Create the element
+        let ProjectSet1 = document.createElement("ul");
+        ProjectSet1.setAttribute("id", "ListThree");
+        ProjectSet1.setAttribute("class", "list-1");
+        // Create ul that will contain second set of projects
+        let ProjectSet2 = document.createElement("ul");
+        ProjectSet2.setAttribute("id", "ListThree");
+        ProjectSet2.setAttribute("class", "list-1");
+
+        // insert a href
+
+        for (const person of student1)
+        {
+            list += `<li><h3>${person}</h3></li>`;
+        }
+
+        ProjectSet1.innerHTML = list;
+        div1.insertAdjacentElement("beforebegin",ProjectSet1);
+        div1.appendChild(paragraph1);
+        list = "";
+    }
+
+
+
 
     window.addEventListener("load", Start);
 
