@@ -206,8 +206,8 @@
 
     function ProjectsContent()
     {
-        let paragraph1 = ['NASA Support application for latest lunar navigation system.', 'Traffic Co-ordinator', 
-                            'Development medical software'];
+        let paragraph1 = ['Creating File Text Editor - Visual Studio 2019.', 'FormAwesomness - A simple application with disappear button', 
+                            'EntityFramework - Retriving data from local database, migration and following convertion this data into entities objects'];
         let paragraph2 = ['Draw A Square - An application that lets you draw squares', 
                         'Numbers Guessing Game - A simple guessing game coded in C#', 
                         'Quiz Game - A quiz game programmed in Turing. It had approximately 10 random trivia questions and music\!\nUnfortunately this game has been lost to time.'];
