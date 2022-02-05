@@ -1,26 +1,64 @@
 /* custom CSS goes here */
 
-/* ADD IMG THROUGH HERE AND EDIT FORMAT*/
-
-/* FIND WAY TO OVERRIDE BOOTSTRAP (W/OUT DESTROYING IT)
-   TO MAKE CUSTOM CHANGES TO SITE */
-
 body {
    background-color: rgba(177, 171, 202, 0.836);
 }
 
+p {
+   text-align: left;
+}
+
+main {
+   width: 100%;
+}
+
 div.container {
+   width: 100%;
    background-color: aliceblue;
-   margin: 5%;
    border:5%;
-   padding: 5px;
+   padding: 20px;
    opacity: 0.7;
    box-shadow: 0 4px 8px rgba(19, 18, 14, 0.945), 0 6px 20px 0 rgba(19, 18, 14, 0.19);
 }
+#homepage {
+   text-align: center;
+}
+.col {
+   float:left;
+   width: 50%;
+   padding: 2px;
+   text-align: center;
+}
+
+.photos::after {
+   content: "";
+   clear: both;
+   display: table;
+}
 
 img {
-   max-width: 50%;
-   max-height: 50%;
-   margin: 2%;
+   max-height: 100%;
+   max-width: 100%;
 }
+
+#will_portrait {
+   max-width: 200px;
+   max-height: 300px;
+}
+
+#ivan_portrait {
+   max-width: 200px;
+   max-height: 300px;
+}
+
+h1 {
+   margin: 15px;
+   text-align: center;
+}
+
+h3 {
+   text-align: left;
+}
+
+
 

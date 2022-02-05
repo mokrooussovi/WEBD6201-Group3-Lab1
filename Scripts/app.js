@@ -206,8 +206,6 @@
 
     function ProjectsContent()
     {
-        let HeadingText = 'Project\'s Page';
-        let SubHeading = 'Details On Favourite Projects';
         let paragraph1 = ['NASA Support application for latest lunar navigation system.', 'Traffic Co-ordinator', 
                             'Development medical software'];
         let paragraph2 = ['Draw A Square - An application that lets you draw squares', 
@@ -215,8 +213,8 @@
                         'Quiz Game - A quiz game programmed in Turing. It had approximately 10 random trivia questions and music\!\nUnfortunately this game has been lost to time.'];
 
         // Select an element to find a position in the document
-        let ContentBody = document.body.getElementsByTagName('main')[0];
-        let div1 = ContentBody.getElementsByClassName('list')[0];
+        let div1 = document.body.getElementsByClassName('list')[0];
+        let div2 = document.body.getElementsByTagName('h3')[1];
         
         // Create the ul that will contain the first set of projects listed
         let ProjectSet1 = document.createElement("ul");
@@ -234,15 +232,15 @@
 
         ProjectSet1.innerHTML = list;
         ProjectSet2.innerHTML = list2;
-        div1.insertAdjacentElement("beforebegin", ProjectSet1);
-        div1.appendChild(ProjectSet2);
+        div1.appendChild(ProjectSet1);
+        div2.after(ProjectSet2);
 
         console.log(ProjectSet1);
     }
 
     function ServiceContent()
     {
-        let ContentBody = document.body.getElementsByClassName('container')[0];
+        let ContentBody = document.body.getElementsByClassName('photos')[0];
         let paragraph1 = ['Expertise in Web Design Techniques', 'Proficiency In Programming Languages', 
                         'Graphic Design and Photography'];
 
@@ -250,24 +248,23 @@
         let ProjectSet1 = document.createElement("ul");
         ProjectSet1.setAttribute("id", "ListThree");
         ProjectSet1.setAttribute("class", "list-1");
-        // Create ul that will contain second set of projects
-        let ProjectSet2 = document.createElement("ul");
-        ProjectSet2.setAttribute("id", "ListThree");
-        ProjectSet2.setAttribute("class", "list-1");
 
         list = SetTextLoop(paragraph1);
 
         ProjectSet1.innerHTML = list;
-        ContentBody.appendChild(ProjectSet1);
+        ContentBody.insertAdjacentElement("beforebegin", ProjectSet1);
 
     }
 
     function AboutContent()
     {
-        let ContentBody = document.body.getElementsByClassName('container')[0];
-        let ContentBody2 = document.body.getElementsByClassName('container')[1];
+        // Find element opening to start inserting from - Student id and name
+        let ContentBody = document.body.getElementsByTagName('img')[0];
+        let ContentBody2 = document.body.getElementsByTagName('img')[1];
         let student1 = ['Ivan Mokrooussov', 'StudentID: 100808605'];
         let student2 = ['Will Estanislao', 'StudentID: 100786862']
+
+        // About content to be inserted
         let paragraph1 = '[Enter some info here]';
         let paragraph2 = `Hello, I\'m William Estanislao! I\'m currently in the 2 year Computer Programming
                         course in Durham College. I specialize primarily in developing applications and working
@@ -282,14 +279,16 @@
         ProjectSet2.setAttribute("id", "student-2");
         ProjectSet2.setAttribute("class", "list-1");
 
-        // insert a href
+        let textContent1 = document.createElement('p');
+        textContent1.textContent = paragraph2;
+
         list = SetTextLoop(student1);
         list2 = SetTextLoop(student2);
 
         ProjectSet1.innerHTML = list;
         ProjectSet2.innerHTML = list2;
-        ContentBody.appendChild(ProjectSet1);
-        ContentBody2.appendChild(ProjectSet2);
+        ContentBody.insertAdjacentElement("beforebegin", ProjectSet1);
+        ContentBody2.insertAdjacentElement("beforebegin",ProjectSet2);
         list = "";
     }
 
