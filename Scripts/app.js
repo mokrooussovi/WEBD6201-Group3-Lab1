@@ -290,7 +290,9 @@
         let student2 = ['Will Estanislao', 'StudentID: 100786862']
 
         // About content to be inserted
-        let paragraph1 = `<p>[Enter some info here]</p>`;
+        let paragraph1 = `<p>\nHello, I am Ivan Mokrooussov. I am currently in Computer Programming course in Durham College. 
+                        It\'s a career change time for me. In the past, I have worked as a manager in restaurant business.
+                        I really enjoy working with Java and C#. </p>`;
         let paragraph2 = `<p>\nHello, I\'m William Estanislao! I\'m currently in the 2 year Computer Programming
                         course in Durham College. I specialize primarily in developing applications and working
                         with programming languages such as C# and C++. I'm currently learning to create some games
@@ -298,7 +300,7 @@
 
         // Resume link
         let willResume = `<a href="weresume2022.pdf">Check Out My Resume Here!</a>`;
-        let ivanResume = `<a href="ivanresume2022.pdf"> [Insert Resume Here]</a>`;
+        let ivanResume = `<a href="/Assets/IvanMokrooussov.pdf"> You Are Welcome To Check My Resume </a>`;
 
         // Create the element
         let ProjectSet1 = document.createElement("ul");
