@@ -295,7 +295,7 @@
                         using Unity.</p>`;
 
         // Resume link
-        let willResume = `<a href="weresume2022.pdf">Check Out My Resume Here!</a>`;
+        let willResume = `<a href="/Assets/weresume2022.pdf">Check Out My Resume Here!</a>`;
         let ivanResume = `<a href="/Assets/IvanMokrooussov.pdf"> You Are Welcome To Check My Resume </a>`;
 
         // Create the element
