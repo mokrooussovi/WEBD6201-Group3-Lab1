@@ -1,7 +1,6 @@
 // IIFE -- Immediately Invoked Function Expression
 // AKA -- Anonymous Self-Executing Function
 
-
 (function()
 {
     function DisplayHomePage()
@@ -81,9 +80,6 @@
 
         ContentBody.insertAdjacentElement("afterbegin", text1);
         SetTitle(title, ContentBody);
-
-
-
     }
 
     function DisplayContactPage()
@@ -287,7 +283,7 @@
         let ContentBody = document.body.getElementsByTagName('img')[0];
         let ContentBody2 = document.body.getElementsByTagName('img')[1];
         let student1 = ['Ivan Mokrooussov', 'StudentID: 100808605'];
-        let student2 = ['Will Estanislao', 'StudentID: 100786862']
+        let student2 = ['Will Estanislao', 'StudentID: 100786862'];
 
         // About content to be inserted
         let paragraph1 = `<p>[Enter some info here]</p>`;
@@ -318,8 +314,6 @@
         textContent2.innerHTML = paragraph1;
         textContent2.innerHTML += ivanResume;
 
-
-
         list = SetTextLoop(student1);
         list2 = SetTextLoop(student2);
 
@@ -332,7 +326,6 @@
         SetTitle(Title, MainContent);
 
     }
-
 
     function SetTextLoop(textArray)
     {
